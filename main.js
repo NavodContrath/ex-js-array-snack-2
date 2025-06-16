@@ -131,7 +131,6 @@ console.log(agesSum / authors.length)
 Snack 5 (Bonus) - Raccogli i libri
 Usando la l'API https://boolean-spec-frontend.vercel.app/freetestapi/books/{id} usa la combinazione di .map() e Promise.all(), per creare una funzione (getBooks) che a partire da un array di id (ids), ritorna una promise che risolve un array di libri (books).
 Testala con l’array [2, 13, 7, 21, 19] .
-*/
 
 const ids = [2, 13, 7, 21, 19]
 
@@ -142,6 +141,26 @@ const getBooks = async () => {
     return promises
 }
 getBooks().then(books => console.log(books));
+*/
+/* 
+Snack 6 (Bonus) - Ordina i libri
+
+Crea una variabile booleana (areThereAvailableBooks) per verificare se c’è almeno un libro disponibile.
+Crea un array (booksByPrice) con gli elementi di books ordinati in base al prezzo (crescente).
+Ordina l’array booksByPrice in base alla disponibilità (prima quelli disponibili), senza creare un nuovo array.
+*/
+const areThereAvailableBooks = books.some(book => book.available === true)
+console.log(areThereAvailableBooks)
+const booksByPrice = [...books].sort((a, b) => {
+    const priceA = parseFloat(a.price)
+    const priceB = parseFloat(b.price)
+    return priceA - priceB
+})
+console.log(booksByPrice)
+
+booksByPrice.sort((a, b) => b.available - a.available)
+
+
 
 
 
