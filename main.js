@@ -63,6 +63,5 @@ const longBooks = books.filter(book => book.pages > 300)
 
 console.log(longBooks)
 
-const longBooksTitles = []
-longBooks.forEach(book => longBooksTitles.push(book.title))
-longBooksTitles.forEach(longBookTitle => console.log(longBookTitle)) 
+const longBooksTitles = longBooks.map(book => book.title)
+longBooksTitles.forEach(longBookTitle => console.log(longBookTitle))
