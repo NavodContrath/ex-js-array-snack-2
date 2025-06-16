@@ -51,7 +51,7 @@ Crea una funzione che somma due numeri.
 Crea un array (longBooks) con i libri che hanno più di 300 pagine;
 Creare un array (longBooksTitles) che contiene solo i titoli dei libri contenuti in longBooks.
 Stampa in console ogni titolo nella console.
-*/
+
 function sum(a, b) {
     const summedNumbers = a + b
     return summedNumbers
@@ -65,3 +65,34 @@ console.log(longBooks)
 
 const longBooksTitles = longBooks.map(book => book.title)
 longBooksTitles.forEach(longBookTitle => console.log(longBookTitle))
+*/
+/* 
+Snack 2 - Il primo libro scontato
+Creare un array (availableBooks) che contiene tutti i libri disponibili.
+Crea un array (discountedBooks) con gli availableBooks, 
+ciascuno con il prezzo scontato del 20% (mantieni lo stesso formato e arrotonda al centesimo)
+Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che ha un prezzo intero (senza centesimi).
+*/
+
+const availableBooks = books.filter(book => book.available === true)
+console.log(availableBooks)
+
+const discountedBooks = availableBooks.map(book => {
+    //parcing string into integer
+    const price = parseFloat(book.price)
+    //apply discount and accept decimal
+    const discountedPrice = price * 0.8.toFixed(2) + "€"
+    //return new object with price uppdated
+    return {
+        ...book,
+        price: discountedPrice
+    }
+})
+console.log(discountedBooks)
+
+const fullPricedBook = discountedBooks.find(book => {
+    const price = parseFloat(book.price)
+    return price % 1 === 0
+})
+console.log(fullPricedBook)
+
