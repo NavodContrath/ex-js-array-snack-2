@@ -65,4 +65,4 @@ console.log(longBooks)
 
 const longBooksTitles = []
 longBooks.forEach(book => longBooksTitles.push(book.title))
-longBooksTitles.forEach(longBookTitle => console.log(longBookTitle))
+longBooksTitles.forEach(longBookTitle => console.log(longBookTitle)) 
